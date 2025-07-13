@@ -12,6 +12,7 @@ const Header = () => {
           <li className="nav-item">About us</li>
           <li className="nav-item">Contact</li>
           <li className="nav-item">Cart</li>
+          <button className="nav-item login-button">Login</button>
         </ul>
       </div>
     </div>
