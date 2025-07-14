@@ -68,6 +68,8 @@ const Body = () => {
             name={restaurant.info.name}
             cuisine={restaurant.info.cuisines.join(", ")}
             rating={restaurant.info.avgRating}
+            imageId={restaurant.info.cloudinaryImageId}
+            cost={restaurant.info.costForTwo}
           />
         ))}
       </div>
