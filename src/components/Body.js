@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { RES_DATA } from "../utils/mockData";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   useEffect(() => {
@@ -63,14 +64,18 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredData.map((restaurant) => (
-          <RestaurantCard
+          <Link
+            to={`/restaurant/${restaurant.info.id}`}
             key={restaurant.info.id}
-            name={restaurant.info.name}
-            cuisine={restaurant.info.cuisines.join(", ")}
-            rating={restaurant.info.avgRating}
-            imageId={restaurant.info.cloudinaryImageId}
-            cost={restaurant.info.costForTwo}
-          />
+          >
+            <RestaurantCard
+              name={restaurant.info.name}
+              cuisine={restaurant.info.cuisines.join(", ")}
+              rating={restaurant.info.avgRating}
+              imageId={restaurant.info.cloudinaryImageId}
+              cost={restaurant.info.costForTwo}
+            />
+          </Link>
         ))}
       </div>
     </div>
