@@ -3,25 +3,27 @@ import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
   return (
-    <div className="header">
+    <div className="flex justify-between bg-pink-100 shadow-lg">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL} alt="Logo" />
+        <img className="w-56  " src={LOGO_URL} alt="Logo" />
       </div>
-      <div className="nav-items">
-        <ul className="nav-list">
-          <li className="nav-item">
+      <div className="flex items-center">
+        <ul className="flex p-4 m-4">
+          <li className="px-4">
             <Link to="/"> Home</Link>
           </li>
-          <li className="nav-item">
+          <li className="px-4">
             <Link to="/about"> About Us</Link>
           </li>
-          <li className="nav-item">
+          <li className="px-4">
             <Link to="/contact"> Contact</Link>
           </li>
-          <li className="nav-item">
+          <li className="px-4">
             <Link to="/cart"> Cart</Link>
           </li>
-          <button className="nav-item login-button">Login</button>
+          <button className="px-4 py-2 bg-blue-500 text-white rounded">
+            Login
+          </button>
         </ul>
       </div>
     </div>

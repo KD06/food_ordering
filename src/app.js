@@ -1,18 +1,23 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./utils/UserContext";
 
+const About = lazy(() => import("./components/About"));
 const AppLayout = () => {
   return (
     <div className="app-layout">
-      <Header />
-      <Outlet />
+      <UserContext.Provider
+        value={{ userName: "Dilli", email: "dilli@example.com" }}
+      >
+        <Header />
+        <Outlet />
+      </UserContext.Provider>
     </div>
   );
 };
@@ -29,7 +34,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
