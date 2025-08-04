@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cart = useSelector((store) => store.cart);
+  const totalItems = cart.totalQuantity;
+
   return (
     <div className="flex justify-between bg-pink-100 shadow-lg">
       <div className="logo-container">
@@ -19,7 +23,7 @@ const Header = () => {
             <Link to="/contact"> Contact</Link>
           </li>
           <li className="px-4">
-            <Link to="/cart"> Cart</Link>
+            <Link to="/cart"> Cart ({totalItems} items)</Link>
           </li>
           <button className="px-4 py-2 bg-blue-500 text-white rounded">
             Login
